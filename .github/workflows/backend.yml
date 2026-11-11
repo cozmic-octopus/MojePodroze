@@ -56,3 +56,6 @@ jobs:
       - run: mutmut run
       - run: mutmut results
         if: always()
+      - name: Szczegóły ocalałych mutantów
+        if: always()
+        run: mutmut results | sed 's/:.*//' | xargs -n1 mutmut show
